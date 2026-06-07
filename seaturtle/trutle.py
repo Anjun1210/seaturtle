@@ -14,7 +14,7 @@ st.set_page_config(page_title="AI海龜湯攻防戰", layout="wide")
 # ================= 1. 核心邏輯與狀態初始化 =================
 def generate_new_secret():
     # 使用正確的 1.5-flash 模型
-    model = genai.GenerativeModel("gemini-3.1-flash")
+    model = genai.GenerativeModel("gemini-3.5-flash")
     prompt = """請隨機想一個日常生活中常見的物品、動物、特定行為或職業作為海龜湯謎底。
     難度：中等偏難（不要太常見，也不要冷門到沒人聽過）。
     請「只」輸出謎底的單詞，不要包含任何標點符號或解釋。例如：保溫瓶"""
@@ -49,7 +49,7 @@ def get_system_prompt():
 
 def ask_gemini(user_input, max_retries=3):
     model = genai.GenerativeModel(
-        model_name="gemini-3.1-flash",
+        model_name="gemini-3.5-flash",
         system_instruction=get_system_prompt()
     )
 
